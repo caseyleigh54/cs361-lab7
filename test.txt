@@ -1,0 +1,119 @@
+// An example to show abstract class & inherited classes
+// Cleaner than interface
+// Preffered solution
+// @Author: Casey Charlesworth
+
+// Abstract Vehicle class
+abstract class Vehicle {
+  protected double speed;
+  protected double distance;
+  protected String name = "Vehicle";
+  protected String type;
+
+  // Constructor
+  Vehicle(double speed, double distance){
+    setSpeed(speed);
+    setDistance(distance);
+  }
+
+  //Setter for speed
+  public void setSpeed(double s) {
+    if(s < 0){
+      throw new IllegalArgumentException("Speed cannot be less than 0");
+    }
+      speed = s;
+  }
+  //Setter for distance
+  public void setDistance(double d){
+    if(distance < 0){
+      throw new IllegalArgumentException("Distance cannot be less than or equal to 0");
+    }
+    distance = d;
+  }
+  //Getter for time
+  public double getTime(){
+    if(speed == 0 && distance != 0){
+      if(speed <= 0){
+        throw new IllegalArgumentException("Speed cannot be equal to 0 if distance is not equal to 0");
+      }
+    }
+    return (distance / speed);
+  }
+  //Getter for Speed
+  public double getSpeed(){
+    return this.speed;
+  }
+  //Getter for distance
+  public double getDistance(){
+    return this.distance;
+  }
+
+  public void getInfo(){
+    System.out.println("**** My Info ****\nI implement the interface : " + name +
+    "\nI am of type: " + this.type +
+    "\nSpeed: " + this.getSpeed() + "\nDistance: " + this.getDistance() +
+    "\nTime: " + this.getTime());
+  }
+
+}
+
+public class MainAbstract{
+
+// Aeroplane inherits from Vehicle
+static class Aeroplane extends Vehicle {
+
+      double delay; // extra variable not in Vehicle
+      Aeroplane(double speed, double distance){
+        super(speed, distance);
+        type = "Aeroplane";
+      }
+      Aeroplane(double speed, double distance, double delay){
+        super(speed, distance);
+        if(delay < 0){
+          throw new IllegalArgumentException("Delay cannot be less than or equal to 0");
+        }
+        this.delay = delay;
+        type = "Aeroplane";
+      }
+
+      // must Override superclass' (Vehicle) getTime method to implement a unique method for Aeroplane
+      @Override
+      public double getTime(){
+
+        if(speed == 0 && distance != 0){
+          if(speed <= 0){
+            throw new IllegalArgumentException("Speed cannot be equal to 0 if distance is not equal to 0");
+          }
+        }
+        return (distance / speed) + delay;
+      }
+
+      public void getInfo(){
+        super.getInfo();
+        System.out.println("Delay: " + delay +"\n");
+      }
+
+  }
+
+// Car inherits from Vehicle but is different to Aeroplane
+  static class Car extends Vehicle {
+
+        Car(double speed, double distance){
+          super(speed, distance);
+          type = "Car";
+        }
+  }
+
+  public static void main (String[] args)
+  {
+    Aeroplane aeroplane = new Aeroplane(5.0, 10.0);
+    Aeroplane aeroplane2 = new Aeroplane(1.0, 5.0, 1.5);
+
+    Car car = new Car(2.0,15.0);
+    aeroplane.getInfo();
+    aeroplane2.getInfo();
+    car.getInfo();
+
+  }
+}
+
