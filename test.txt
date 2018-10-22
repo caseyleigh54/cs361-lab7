@@ -2,7 +2,7 @@
 // Cleaner than interface
 // Preffered solution
 // @Author: Casey Charlesworth
-
+//test
 // Abstract Vehicle class
 abstract class Vehicle {
   protected double speed;
