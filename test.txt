@@ -1,3 +1,4 @@
+// TESTING FOR LAB 7
 // An example to show abstract class & inherited classes
 // Cleaner than interface
 // Preffered solution
