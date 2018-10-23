@@ -6,10 +6,10 @@
 //test
 // Abstract Vehicle class
 abstract class Vehicle {
-  protected double speed;
-  protected double distance;
-  protected String name = "Vehicle";
-  protected String type;
+  private double speed;
+  private double distance;
+  private String name = "Vehicle";
+  private String type;
 
   // Constructor
   Vehicle(double speed, double distance){
