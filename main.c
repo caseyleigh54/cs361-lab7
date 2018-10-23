@@ -8,13 +8,13 @@ int sum(int a , int b){
 int main()
 {
    // printf() displays the string inside quotation
-   char *myName = "Casey";
+   char *yourName = "Casey";
    char *yourName = "User";
 
    printf("Hello, World!\n");
 
-   printf("My name is: %s", myName);
-   printf("Your name is: %s", yourName);
+   printf("My name is: %s\n", yourName);
+   printf("Your name is: %s\n", yourName);
 
 
    int x = 1;
